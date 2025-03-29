@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 Water Pump Control</title>
+  <script src="main.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .tab { display: none; }
+    .tab.active { display: block; }
+    button { margin: 5px; }
+    select, input { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Water Pump Control Panel</h2>
+
+  <div id="login">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div id="control" style="display:none;">
+    <p>Status: <span id="status">Unknown</span></p>
+    <input type="number" id="timer" placeholder="Enter timer in minutes" min="1" max="30"><br>
+    <button onclick="startMotor()">Start Pump</button>
+    <button onclick="stopMotor()">Stop Pump</button>
+    <button onclick="logout()">Logout</button>
+
+    <hr>
+
+    <div>
+      <button onclick="switchTab('motor')">Motor Logs</button>
+      <button onclick="switchTab('daily')">Daily Logs</button>
+      <select id="dayFilter" onchange="renderLogs()">
+        <option value="All">All Days</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Saturday">Saturday</option>
+      </select>
+    </div>
+
+    <div class="tab active" id="motorLogsTab">
+      <h3>Motor Operation Logs</h3>
+      <div id="motorLogs"></div>
+    </div>
+
+    <div class="tab" id="dailyLogsTab">
+      <h3>Daily Motor Start Count Logs</h3>
+      <div id="dailyLogs"></div>
+    </div>
+
+    <div id="adminPanel" style="display:none; margin-top:20px;">
+      <h3>🔧 Admin Panel</h3>
+      <h4>Change User Role</h4>
+      <input type="text" id="roleUser" placeholder="Username">
+      <select id="newRole">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button onclick="changeUserRole()">Change Role</button>
+
+      <h4>Change User Password</h4>
+      <input type="text" id="passUser" placeholder="Username">
+      <input type="password" id="newPassword" placeholder="New Password">
+      <button onclick="changePassword()">Change Password</button>
+    </div>
+  </div>
+</body>
+</html>

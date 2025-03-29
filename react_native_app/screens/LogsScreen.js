@@ -1,0 +1,1 @@
+// logs screen with tabs and filters
