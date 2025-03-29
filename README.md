@@ -22,9 +22,12 @@ A secure, feature-rich ESP32-based smart water pump controller for residential o
 
 ---
 
-## 📁 Project Structure
 
+## Project Structure
+
+```
 ESP32_Water_Pump_Control/
+├── README.md
 ├── data/
 │   ├── index.html
 │   └── main.js
@@ -36,16 +39,14 @@ ESP32_Water_Pump_Control/
 │       ├── LogsScreen.js
 │       └── UserManagementScreen.js
 │
-├── main.cpp
-├── WebServer.cpp / .h
-├── MotorControl.cpp / .h
-├── UserManagement.cpp / .h
-├── LogManagement.cpp / .h
-├── Variables.h
-├── circuit_diagram.png
-├── .gitignore
-└── README.md
-
+├── src/
+│   ├── main.cpp
+│   ├── Variables.h
+│   ├── MotorControl.cpp / .h
+│   ├── UserManagement.cpp / .h
+│   ├── WebServer.cpp / .h
+│   └── LogManagement.cpp / .h
+```
 ---
 
 ## 🧪 Example Logs
